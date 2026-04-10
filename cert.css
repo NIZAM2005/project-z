@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: black;
+    color: #e7e7e7;
+    overflow-x: hidden;
+}
+
+/* ✅ SAME AS INDEX BACKGROUND */
+.image-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    rotate: -30deg;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.8rem;
+}
+
+header p {
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* LOGOUT BUTTON */
+.header-buttons {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.btn-back {
+    text-decoration: none;
+    background-color: #a7a7a7;
+    color: black;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-back:hover {
+    background-color: white;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.overlay h3 {
+    font-size: 1.1rem;
+}
+
+.overlay p {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+/* BUTTONS */
+.btns {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.view-btn, .download-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.view-btn {
+    background: white;
+    color: black;
+}
+
+.download-btn {
+    background: white;
+    color: black;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
