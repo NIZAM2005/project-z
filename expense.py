@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 FILE_NAME = "expenses.txt"
 
-# ✅ HOME (your index page)
+# ✅ HOME
 @app.route("/")
 def home():
-    return render_template("index.html")   # 🔥 IMPORTANT FIX
+    return render_template("index.html")
 
 
-# ✅ EXPENSE PAGE (THIS WAS MISSING)
-@app.route("/expence")
+# ✅ EXPENSE PAGE
+@app.route("/expense")   # ✅ FIXED spelling
 def expense():
     expenses = []
     total = 0
@@ -25,7 +25,7 @@ def expense():
                 expenses.append((i, name, amount))
                 total += amount
 
-    return render_template("expence.html", expenses=expenses, total=total)
+    return render_template("expense.html", expenses=expenses, total=total)  # ✅ FIXED file name
 
 
 # ✅ ADD EXPENSE
@@ -37,14 +37,14 @@ def add():
     with open(FILE_NAME, "a") as file:
         file.write(f"{name},{amount}\n")
 
-    return redirect("/expence")   # 🔥 FIXED
+    return redirect("/expense")   # ✅ FIXED
 
 
 # ✅ DELETE EXPENSE
 @app.route("/delete/<int:index>")
 def delete(index):
     if not os.path.exists(FILE_NAME):
-        return redirect("/expence")
+        return redirect("/expense")
 
     with open(FILE_NAME, "r") as file:
         lines = file.readlines()
@@ -55,7 +55,7 @@ def delete(index):
     with open(FILE_NAME, "w") as file:
         file.writelines(lines)
 
-    return redirect("/expence")   # 🔥 FIXED
+    return redirect("/expense")   # ✅ FIXED
 
 
 if __name__ == "__main__":
