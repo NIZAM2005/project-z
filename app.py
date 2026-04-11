@@ -88,7 +88,7 @@ Message:
 # =======================
 # 💰 EXPENSE PAGE (IMPORTANT FIX)
 # =======================
-@app.route('/expense')
+@app.route('/expence')
 def expense():
     expenses = []
     total = 0
@@ -115,7 +115,7 @@ def add():
     with open(FILE_NAME, "a") as file:
         file.write(f"{name},{amount}\n")
 
-    return redirect("/expense")
+    return redirect("/expence")
 
 
 # =======================
@@ -124,7 +124,7 @@ def add():
 @app.route('/delete/<int:index>')
 def delete(index):
     if not os.path.exists(FILE_NAME):
-        return redirect("/expense")
+        return redirect("/expence")
 
     with open(FILE_NAME, "r") as file:
         lines = file.readlines()
@@ -135,7 +135,7 @@ def delete(index):
     with open(FILE_NAME, "w") as file:
         file.writelines(lines)
 
-    return redirect("/expense")
+    return redirect("/expence")
 
 
 # =======================
