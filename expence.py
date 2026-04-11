@@ -5,13 +5,15 @@ app = Flask(__name__)
 
 FILE_NAME = "expenses.txt"
 
+# ✅ HOME (your index page)
 @app.route("/")
 def home():
-    return render_template("expence.html")
+    return render_template("index.html")   # 🔥 IMPORTANT FIX
 
 
-@app.route("/tracker")
-def tracker():
+# ✅ EXPENSE PAGE (THIS WAS MISSING)
+@app.route("/expense")
+def expense():
     expenses = []
     total = 0
 
@@ -26,6 +28,7 @@ def tracker():
     return render_template("expence.html", expenses=expenses, total=total)
 
 
+# ✅ ADD EXPENSE
 @app.route("/add", methods=["POST"])
 def add():
     name = request.form["name"]
@@ -34,12 +37,14 @@ def add():
     with open(FILE_NAME, "a") as file:
         file.write(f"{name},{amount}\n")
 
-    return redirect("/tracker")
+    return redirect("/expense")   # 🔥 FIXED
 
+
+# ✅ DELETE EXPENSE
 @app.route("/delete/<int:index>")
 def delete(index):
     if not os.path.exists(FILE_NAME):
-        return redirect("/tracker")
+        return redirect("/expense")
 
     with open(FILE_NAME, "r") as file:
         lines = file.readlines()
@@ -50,7 +55,7 @@ def delete(index):
     with open(FILE_NAME, "w") as file:
         file.writelines(lines)
 
-    return redirect("/tracker")
+    return redirect("/expense")   # 🔥 FIXED
 
 
 if __name__ == "__main__":
