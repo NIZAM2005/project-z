@@ -36,7 +36,6 @@ def add():
 
     return redirect("/tracker")
 
-
 @app.route("/delete/<int:index>")
 def delete(index):
     if not os.path.exists(FILE_NAME):
@@ -55,4 +54,4 @@ def delete(index):
 
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    app.run(debug=True)
