@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset=""UTF-8>
+    <meta charset="UTF-8"> <!-- FIXED -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PROJECT Z</title>
     <link rel="stylesheet" href="style.css">
     
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
 </head>
+
 <body>
     <img class="image-gradient" src="gradient.png" alt="gradient">
     <div class="layer-blur"></div>
@@ -20,14 +20,16 @@
         <nav>
             <a data-aos="fade-down" data-aos-duration="1500" href="quiz.html">QUIZ</a>
             <a data-aos="fade-down" data-aos-duration="2000" href="game.html">TIC TAC TOE</a>
-            <a data-aos="fade-down" data-aos-duration="2500" href="http://127.0.0.1:5000/tracker" target="_blank">EXPENCE TRACKER</a>
-            <a data-aos="fade-down" data-aos-duration="3000" href="http://127.0.0.1:5000">TYPING SPEED</a>
+
+            <!-- ✅ FIXED HERE -->
+            <a data-aos="fade-down" data-aos-duration="2500" href="/expence">EXPENSE TRACKER</a>
+
+            <a data-aos="fade-down" data-aos-duration="3000" href="speed.html">TYPING SPEED</a>
         </nav>
         
         <div class="header-buttons">
-            <!-- FIXED -->
             <a href="#" data-aos="fade-down" data-aos-duration="1500" class="btn-signing">LOGGED IN</a>
-            <a href="login.html" data-aos="fade-down" data-aos-duration="1500" class="btn-back">LOG-OUT</a>
+            <a href="front.html" data-aos="fade-down" data-aos-duration="1500" class="btn-back">LOG-OUT</a>
         </div>
 
      </header>
@@ -46,8 +48,9 @@
                 data-aos="fade-zoom-in"
                 data-aos-easing="ease-in-back"
                 data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="2000" 
-            >HI<br>HELLO</h1>
+                data-aos-offset="0" data-aos-duration="2000">
+                HI<br>HELLO
+            </h1>
     
             <p  data-aos="fade-zoom-in"
                 data-aos-easing="ease-in-back"
@@ -58,15 +61,16 @@
                 HTML, CSS, Python, and Java highlighting both design and functionality.
             </p>
     
-            <div  data-aos="fade-zoom-in"
-                  data-aos-easing="ease-in-back"
-                  data-aos-delay="300"
-                  data-aos-offset="0" data-aos-duration="3000" 
-                  class="buttons">
+            <div data-aos="fade-zoom-in"
+                 data-aos-easing="ease-in-back"
+                 data-aos-delay="300"
+                 data-aos-offset="0" data-aos-duration="3000" 
+                 class="buttons">
                   
-                <!-- FIXED BUTTONS ONLY -->
-                <a href="certificate.html" class="btn-documentation">Achievments &gt;</a>
-                <a href="http://127.0.0.1:5000/contact" class="btn-get-started">Get Started &gt;</a>
+                <a href="/cert" class="btn-documentation">Achievements &gt;</a>
+
+                <!-- ✅ FIXED -->
+                <a href="/contact" class="btn-get-started">Contact &gt;</a>
             </div>
          </div>
     </main>
@@ -75,7 +79,9 @@
                    data-aos-easing="ease-in-back"
                    data-aos-delay="300"
                    data-aos-offset="0" data-aos-duration="3000" 
-    class="robot-3d" url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode"></spline-viewer>
+                   class="robot-3d"
+                   url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode">
+    </spline-viewer>
 
     </div>
 
