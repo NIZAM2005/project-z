@@ -6,8 +6,10 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 
 # 📧 YOUR EMAIL CONFIG
-EMAIL = "maynizam15@gmail.com"
-PASSWORD = "uctdlfyzmbajyfjy"
+import os
+
+EMAIL = "maynizam@gmail.com"
+PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 @app.route('/')
 def home():
