@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='expence.css') }}">
 </head>
 <body>
-
-<img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}" alt="gradient">
-<div class="layer-blur"></div>
-
-<div class="container">
 
     <h1>💰 Expense Tracker</h1>
 
@@ -19,20 +13,19 @@
         <button type="submit">Add</button>
     </form>
 
-    <h2>📋 Expenses</h2>
+    <h2>Total: ₹{{ total }}</h2>
 
     <ul>
         {% for i, name, amount in expenses %}
             <li>
                 {{ name }} - ₹{{ amount }}
-                <a href="/delete/{{ i }}" class="delete">🗑</a>
+                <a href="/delete/{{ i }}">❌</a>
             </li>
         {% endfor %}
     </ul>
 
-    <h3>💰 Total: ₹{{ total }}</h3>
-
-</div>
+    <br>
+    <a href="/">⬅ Back Home</a>
 
 </body>
 </html>
