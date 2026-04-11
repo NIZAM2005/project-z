@@ -7,21 +7,27 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 
 # =======================
-# 📧 EMAIL CONFIG (SAFE)
+# 📧 EMAIL CONFIG
 # =======================
 EMAIL = "maynizam@gmail.com"
-PASSWORD = os.environ.get("EMAIL_PASSWORD")  # safer
+PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 # =======================
-# 💰 EXPENSE TRACKER
+# 💰 EXPENSE FILE
 # =======================
 FILE_NAME = "expenses.txt"
 
+# =======================
+# 🏠 HOME PAGE
+# =======================
 @app.route('/')
 def home():
     return render_template('index.html')
 
 
+# =======================
+# 📜 CERT PAGE
+# =======================
 @app.route('/cert')
 def cert():
     return render_template('cert.html')
@@ -80,7 +86,7 @@ Message:
 
 
 # =======================
-# 💰 EXPENSE ROUTES
+# 💰 EXPENSE PAGE (IMPORTANT FIX)
 # =======================
 @app.route('/expense')
 def expense():
@@ -98,6 +104,9 @@ def expense():
     return render_template("expence.html", expenses=expenses, total=total)
 
 
+# =======================
+# ➕ ADD EXPENSE
+# =======================
 @app.route('/add', methods=['POST'])
 def add():
     name = request.form["name"]
@@ -109,6 +118,9 @@ def add():
     return redirect("/expense")
 
 
+# =======================
+# ❌ DELETE EXPENSE
+# =======================
 @app.route('/delete/<int:index>')
 def delete(index):
     if not os.path.exists(FILE_NAME):
