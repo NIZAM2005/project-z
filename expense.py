@@ -1,89 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset=""UTF-8>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+from flask import Flask, render_template, request, redirect
+import os
 
-</head>
-<body>
-    <img class="image-gradient" src="gradient.png" alt="gradient">
-    <div class="layer-blur"></div>
+app = Flask(__name__)
 
-    <div class="container">
-     <header>
-        <h1 data-aos="fade-down" data-aos-duration="1500" class="logo">PROJECT Z</h1>
+FILE_NAME = "expenses.txt"
 
-        <nav>
-            <a data-aos="fade-down" data-aos-duration="1500" href="quiz.html">QUIZ</a>
-            <a data-aos="fade-down" data-aos-duration="2000" href="game.html">TIC TAC TOE</a>
-            <a data-aos="fade-down" data-aos-duration="2500" href="http://127.0.0.1:5000/expense" target="_blank">EXPENCE TRACKER</a>
-            <a data-aos="fade-down" data-aos-duration="3000" href="speed.html" target="_blank">TYPING SPEED</a>
-        </nav>
-        
-        <div class="header-buttons">
-            <!-- FIXED -->
-            <a href="#" data-aos="fade-down" data-aos-duration="1500" class="btn-signing">LOGGED IN</a>
-            <a href="front.html" data-aos="fade-down" data-aos-duration="1500" class="btn-back">LOG-OUT</a>
-        </div>
+# ✅ HOME (redirect to expense page)
+@app.route("/")
+def home():
+    return redirect("/expense")
 
-     </header>
 
-     <main>
-        <div class="content">
-            <div data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="1500" 
-                class="tag-box">
-            <div class="tag">WELCOME !</div>
-        </div>
-    
-            <h1 
-                data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="2000" 
-            >HI<br>HELLO</h1>
-    
-            <p  data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="2500" 
-                class="description">
-                This project is based on dynamic-responsive and interactive website developed using 
-                HTML, CSS, Python, and Java highlighting both design and functionality.
-            </p>
-    
-            <div  data-aos="fade-zoom-in"
-                  data-aos-easing="ease-in-back"
-                  data-aos-delay="300"
-                  data-aos-offset="0" data-aos-duration="3000" 
-                  class="buttons">
-                  
-                <!-- FIXED BUTTONS ONLY -->
-                <a href="cert.html" class="btn-documentation">Achievments &gt;</a>
-                <a href="http://127.0.0.1:5000/contact" target="_blank" class="btn-get-started">Contact &gt;</a>
-            </div>
-         </div>
-    </main>
+# ✅ EXPENSE PAGE
+@app.route("/expense")
+def expense():
+    expenses = []
+    total = 0
 
-    <spline-viewer data-aos="fade-zoom-in"
-                   data-aos-easing="ease-in-back"
-                   data-aos-delay="300"
-                   data-aos-offset="0" data-aos-duration="3000" 
-    class="robot-3d" url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode"></spline-viewer>
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, "r") as file:
+            for i, line in enumerate(file):
+                name, amount = line.strip().split(",")
+                amount = float(amount)
+                expenses.append((i, name, amount))
+                total += amount
 
-    </div>
+    return render_template("expense.html", expenses=expenses, total=total)
 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-           AOS.init();
-    </script>
-</body>
-</html>
+# ✅ ADD EXPENSE
+@app.route("/add", methods=["POST"])
+def add():
+    name = request.form["name"]
+    amount = request.form["amount"]
+
+    with open(FILE_NAME, "a") as file:
+        file.write(f"{name},{amount}\n")
+
+    return redirect("/expense")
+
+
+# ✅ DELETE EXPENSE
+@app.route("/delete/<int:index>")
+def delete(index):
+    if not os.path.exists(FILE_NAME):
+        return redirect("/expense")
+
+    with open(FILE_NAME, "r") as file:
+        lines = file.readlines()
+
+    if 0 <= index < len(lines):
+        lines.pop(index)
+
+    with open(FILE_NAME, "w") as file:
+        file.writelines(lines)
+
+    return redirect("/expense")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
