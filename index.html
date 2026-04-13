@@ -1,89 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset=""UTF-8>
+    <meta charset="UTF-8"> <!-- ✅ FIXED -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PROJECT Z</title>
+
     <link rel="stylesheet" href="style.css">
-    
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
 </head>
-<body>
-    <img class="image-gradient" src="gradient.png" alt="gradient">
-    <div class="layer-blur"></div>
 
-    <div class="container">
-     <header>
+<body>
+
+<img class="image-gradient" src="gradient.png" alt="gradient">
+<div class="layer-blur"></div>
+
+<div class="container">
+
+    <header>
         <h1 data-aos="fade-down" data-aos-duration="1500" class="logo">PROJECT Z</h1>
 
         <nav>
-            <a data-aos="fade-down" data-aos-duration="1500" href="quiz.html">QUIZ</a>
-            <a data-aos="fade-down" data-aos-duration="2000" href="game.html">TIC TAC TOE</a>
-            <a data-aos="fade-down" data-aos-duration="2500" href="http://127.0.0.1:5000/expense" target="_blank">EXPENCE TRACKER</a>
-            <a data-aos="fade-down" data-aos-duration="3000" href="speed.html" target="_blank">TYPING SPEED</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="game.html">TIC TAC TOE</a>
+            <a href="http://127.0.0.1:5000/expense" target="_blank">EXPENSE TRACKER</a> <!-- ✅ FIX -->
+            <a href="speed.html" target="_blank">TYPING SPEED</a>
         </nav>
-        
+
         <div class="header-buttons">
-            <!-- FIXED -->
-            <a href="#" data-aos="fade-down" data-aos-duration="1500" class="btn-signing">LOGGED IN</a>
-            <a href="front.html" data-aos="fade-down" data-aos-duration="1500" class="btn-back">LOG-OUT</a>
+            <a href="#" class="btn-signing">LOGGED IN</a>
+            <a href="front.html" class="btn-back">LOG-OUT</a>
         </div>
+    </header>
 
-     </header>
-
-     <main>
+    <main>
         <div class="content">
-            <div data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="1500" 
-                class="tag-box">
-            <div class="tag">WELCOME !</div>
-        </div>
-    
-            <h1 
-                data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="2000" 
-            >HI<br>HELLO</h1>
-    
-            <p  data-aos="fade-zoom-in"
-                data-aos-easing="ease-in-back"
-                data-aos-delay="300"
-                data-aos-offset="0" data-aos-duration="2500" 
-                class="description">
-                This project is based on dynamic-responsive and interactive website developed using 
-                HTML, CSS, Python, and Java highlighting both design and functionality.
-            </p>
-    
-            <div  data-aos="fade-zoom-in"
-                  data-aos-easing="ease-in-back"
-                  data-aos-delay="300"
-                  data-aos-offset="0" data-aos-duration="3000" 
-                  class="buttons">
-                  
-                <!-- FIXED BUTTONS ONLY -->
-                <a href="cert.html" class="btn-documentation">Achievments &gt;</a>
-                <a href="http://127.0.0.1:5000/contact" target="_blank" class="btn-get-started">Contact &gt;</a>
+
+            <div class="tag-box" data-aos="fade-zoom-in">
+                <div class="tag">WELCOME !</div>
             </div>
-         </div>
+
+            <h1 data-aos="fade-zoom-in">HI<br>HELLO</h1>
+
+            <p class="description" data-aos="fade-zoom-in">
+                This project is based on dynamic-responsive and interactive website 
+                developed using HTML, CSS, Python, and Java highlighting both design and functionality.
+            </p>
+
+            <div class="buttons" data-aos="fade-zoom-in">
+                <a href="cert.html" class="btn-documentation">Achievements ></a>
+                <a href="http://127.0.0.1:5000/contact" target="_blank" class="btn-get-started">Contact ></a> <!-- ✅ FIX -->
+            </div>
+
+        </div>
     </main>
 
-    <spline-viewer data-aos="fade-zoom-in"
-                   data-aos-easing="ease-in-back"
-                   data-aos-delay="300"
-                   data-aos-offset="0" data-aos-duration="3000" 
-    class="robot-3d" url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode"></spline-viewer>
+    <spline-viewer 
+        class="robot-3d"
+        url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode">
+    </spline-viewer>
 
-    </div>
+</div>
 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-           AOS.init();
-    </script>
+<script>
+    AOS.init();
+</script>
+
 </body>
 </html>
