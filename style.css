@@ -1,5 +1,4 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,345 +9,210 @@ header {
     z-index: 10000;
 }
 
-body 
-{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+body {
+    font-family: system-ui;
     background-color: black;
     color: #e7e7e7;
-    height: 100vh;            /* ✅ force full screen */
-    overflow: hidden;         /* ✅ remove both scrolls */
+    min-height: 100vh;          /* ✅ FIXED */
+    overflow-x: hidden;         /* ✅ FIXED */
     line-height: 1.5;
 }
 
-/* gradient and layer blur effct  */
-
-.image-gradient
-{
+/* BACKGROUND */
+.image-gradient {
     position: absolute;
     top: 0;
     right: 0;
+    width: 60%;                 /* ✅ RESPONSIVE */
+    max-width: 600px;
     opacity: 0.5;
     z-index: -1;
 }
 
-.layer-blur
-{
-    height: 0;
-    width: 30rem;
+.layer-blur {
+    width: 20rem;
+    height: 20rem;
     position: absolute;
     top: 20%;
     right: 0;
-    box-shadow: 0 0 700px 15px white;
-    rotate: -30deg;
+    box-shadow: 0 0 500px 80px white;
+    transform: rotate(-30deg);
 }
 
-.container
-{
-    width: 100%; /* ✅ FIXED */
-    margin: 0 auto;  
-    padding: 0 2rem;
+/* CONTAINER */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     position: relative;
-    overflow: visible; /* optional but safe */
 }
 
-/* header */
-
+/* HEADER */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1rem;
+    padding: 1rem 0;
 }
 
-header h1
-{
-    margin: 0;
+header h1 {
     font-size: 3rem;
     font-weight: 300;
 }
 
-/* CENTER NAV */
+/* NAV */
 nav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 3rem;
+    gap: 2rem; /* slightly reduced for mobile safety */
 }
 
-nav a
-{
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    transition: color 0.2s ease;
+nav a {
     text-decoration: none;
     color: inherit;
-    z-index: 999;
 }
 
-nav a:hover
-{
+nav a:hover {
     color: #a7a7a7;
 }
 
-.btn-signing
-{
-    text-decoration: none;
-    background-color: #a7a7a7;
-    color: black;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-    z-index: 999;
-}
-
-.btn-back
-{
-    text-decoration: none;
-    background-color: #a7a7a7;
-    color: black;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-    z-index: 999;
-}
-
-/* RIGHT SIDE BUTTONS */
+/* BUTTONS */
 .header-buttons {
     display: flex;
-    gap: 2rem;
-    margin-left: auto;
+    gap: 1rem;
 }
 
+.btn-signing,
+.btn-back {
+    background-color: #a7a7a7;
+    color: black;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.btn-signing:hover,
 .btn-back:hover {
     background-color: white;
 }
 
-.btn-signing:hover
-{
-    background-color: white;
-}
-
-main
-{
+/* MAIN */
+main {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh; /* ✅ fixes bottom black bar */
+    align-items: center;
+    min-height: 100vh;
 }
 
-.content
-{
+/* CONTENT */
+.content {
     max-width: 40rem;
     margin-left: 5%;
-    z-index: 999;
-    margin-top: -10%;
+    margin-top: -5%;
 }
 
-.tag-box
-{
-    position: relative;
+/* TAG */
+.tag-box {
     width: 18rem;
     height: 2.5rem;
     border-radius: 50px;
-    background: linear-gradient(to right, #656565, #7f42a7, #6600c5, 
-    #5300a0, #757575, #656565);
-    background-size: 200%;
-    animation: animationGradient 2.5s linear infinite;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(to right, #656565, #7f42a7, #6600c5);
 }
 
-@keyframes animationGradient 
-{
-    to
-    {
-        background-position: 200%;
-    }
-}
-
-.tag-box .tag
-{    
-    position: absolute;
-    inset: 3px 3px 3px 3px;
-    background-color: black;
+.tag {
+    background: black;
     border-radius: 50px;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s ease;
-    cursor: pointer;
+    text-align: center;
+    padding: 5px;
 }
 
-.tag-box .tag:hover
-{
-    color: #5300a0;
-}
-
-.content h1 
-{
+/* TEXT */
+.content h1 {
     font-size: 4rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
     margin: 2rem 0;
-    line-height: 1.2;
-    text-shadow: 0 0 10px rgba(128, 128, 128, 0.418);
 }
 
-.description
-{
+.description {
     font-size: 1.2rem;
-    letter-spacing: 0.05rem;
-    max-width: 35rem;
     color: grey;
 }
 
-.buttons
-{
+/* BUTTONS */
+.buttons {
     display: flex;
     gap: 1rem;
     margin-top: 3rem;
 }
 
-.btn-documentation
-{
-    text-decoration: none;
-    background-color: grey;
+.btn-documentation,
+.btn-get-started {
+    background: grey;
     color: black;
     padding: 0.7rem 1.2rem;
     border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    transition: background-color 0.2s ease;
-}
-
-.btn-documentation:hover
-{
-    background-color: lightgrey;
-}
-
-.btn-get-started
-{
     text-decoration: none;
-    background-color: grey;
-    color: black;
-    padding: 0.7rem 1.2rem;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    transition: background-color 0.2s ease;
 }
 
-.btn-get-started:hover
-{
-    background-color: lightgrey;
+.btn-documentation:hover,
+.btn-get-started:hover {
+    background: lightgrey;
 }
 
-.robot-3d
-{
+/* ROBOT */
+.robot-3d {
     position: absolute;
     top: -10%;
     right: -20%;
-    pointer-events: none;
+    max-width: 600px;
 }
 
-/* tablet responsive */
+/* TABLET */
+@media (max-width: 1300px) {
+    .content {
+        margin-top: 3rem;
+    }
 
-@media (max-width: 1300px)
-{
-        header
-        {
-          padding: 1rem 0.5rem;
-        }
-
-        .content
-        {
-          margin-top: 5rem; /* ✅ reduced from 85% */
-        }
-
-        .robot-3d
-        {
-          scale: 0.8;
-          top: -20%;
-          right: 2%;  
-        }
+    .robot-3d {
+        scale: 0.8;
+        right: 0;
+    }
 }
 
-/* mobile responsive */
+/* MOBILE */
+@media (max-width: 768px) {
 
-@media (max-width: 768px)
-{
-        header
-        {
-          padding: 1rem 0.1rem;
-        } 
+    nav {
+        display: none; /* keep design same */
+    }
 
-        nav
-        {
-          display: none;  
-        }
+    header h1 {
+        font-size: 2rem;
+    }
 
-        header h1
-        {
-          font-size: 2rem;  
-        }
+    .content {
+        margin: 3rem auto;
+        text-align: center;
+    }
 
-        .btn-signing
-        {
-          padding: 0.6rem 1.5rem;  
-        }
+    .content h1 {
+        font-size: 2.5rem;
+    }
 
-        .content
-        {
-          margin-top: 6rem; /* ✅ reduced from 25rem */
-        }
+    .description {
+        font-size: 1rem;
+    }
 
-        .robot-3d
-        {
-          scale: 0.5;
-          top: -25%;
-          right: 0;  
-        }
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .content
-        {
-          max-width: 30rem;
-          margin-left: 10%;  
-        }
-
-        .tag-box
-        {
-          width: 12rem;  
-        }
-
-        .content h1 /* ✅ fixed typo */
-        {
-          font-size: 2.5rem;  
-        }
-
-        .description
-        {
-          font-size: 1rem;  
-        }
-
-        .btn-documentation
-        {
-          font-size: 0.8rem;
-          padding: 0.8rem 1.2rem;  
-        }
-
-        .btn-get-started
-        {
-          font-size: 0.8rem;
-          padding: 0.8rem 2rem;  
-        }
+    .robot-3d {
+        position: relative;
+        scale: 0.5;
+        top: 0;
+        right: 0;
+        margin-top: 2rem;
+    }
 }
