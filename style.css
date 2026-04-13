@@ -334,14 +334,14 @@ main
         font-size: 0.75rem;
     }
 
-    /* CONTENT CENTER */
-    .content
-    {
-        max-width: 90%;
-        margin: 2rem auto;
-        text-align: center;
-    }
-
+   .content
+{
+    max-width: 90%;
+    margin: 10rem auto 2rem;   /* ✅ pushes content below robot */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
     /* TAG CENTER */
     .tag-box
     {
@@ -382,14 +382,14 @@ main
         padding: 0.7rem;
     }
 
-    /* ROBOT FIX */
-    .robot-3d
-    {
-        position: relative;
-        top: 0;
-        right: 0;
-        transform: scale(0.55);
-        margin: 2rem auto 0;
-        display: block;
-    }
+    /* ROBOT FIX (CENTER ABOVE CONTENT) */
+.robot-3d
+{
+    position: absolute;           /* ✅ bring it back above */
+    top: 15%;                     /* ✅ adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%) scale(0.55);  /* ✅ center perfectly */
+    z-index: 1;                   /* behind text */
+    pointer-events: none;
+}
 }
