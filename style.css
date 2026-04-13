@@ -283,23 +283,27 @@ main
         }
 }
 
-/* 📱 MOBILE RESPONSIVE (NAV FIXED - VERTICAL) */
-@media (max-width: 768px) {
+/* mobile responsive */
 
-    /* HEADER LAYOUT */
-    header {
+@media (max-width: 768px)
+{
+    /* HEADER FIX */
+    header
+    {
         flex-direction: column;
         align-items: center;
         padding: 1rem;
+        gap: 0.5rem;
     }
 
-    header h1 {
+    header h1
+    {
         font-size: 2rem;
-        margin-bottom: 0.5rem;
     }
 
-    /* ✅ NAVBAR VERTICAL */
-    nav {
+    /* ✅ NAVBAR FIX (VERTICAL) */
+    nav
+    {
         display: flex !important;
         position: static !important;
         transform: none !important;
@@ -309,66 +313,73 @@ main
         margin-top: 0.5rem;
     }
 
-    nav a {
+    nav a
+    {
         font-size: 0.9rem;
     }
 
     /* HEADER BUTTONS */
-    .header-buttons {
-        margin-top: 0.8rem;
+    .header-buttons
+    {
+        margin-top: 0.5rem;
         justify-content: center;
         gap: 0.5rem;
     }
 
     .btn-signing,
-    .btn-back {
+    .btn-back
+    {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
     }
 
-    /* CONTENT */
-    .content {
+    /* CONTENT FIX */
+    .content
+    {
         max-width: 90%;
         margin: 2rem auto;
         text-align: center;
     }
 
-    /* TAG */
-    .tag-box {
+    .tag-box
+    {
         width: 10rem;
         margin: 0 auto;
     }
 
-    /* HEADING */
-    .content h1 {
+    .content h1
+    {
         font-size: 2.3rem;
         margin: 1.5rem 0;
     }
 
-    /* DESCRIPTION */
-    .description {
+    .description
+    {
         font-size: 0.95rem;
         line-height: 1.4;
     }
 
-    /* BUTTONS */
-    .buttons {
+    /* BUTTONS STACK */
+    .buttons
+    {
         flex-direction: column;
         align-items: center;
         gap: 0.8rem;
     }
 
     .btn-documentation,
-    .btn-get-started {
+    .btn-get-started
+    {
         font-size: 0.85rem;
         padding: 0.7rem 1.2rem;
     }
 
     /* ROBOT FIX */
-    .robot-3d {
-        position: relative !important;
-        top: 0 !important;
-        right: 0 !important;
+    .robot-3d
+    {
+        position: relative;
+        top: 0;
+        right: 0;
         transform: scale(0.6);
         margin-top: 2rem;
     }
