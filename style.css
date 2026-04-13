@@ -370,6 +370,7 @@ main
         align-items: center;
         gap: 0.8rem;
         margin-top: 2rem;
+        margin-bottom: 2rem;   /* ✅ GAP FROM BOTTOM */
     }
 
     .btn-documentation,
