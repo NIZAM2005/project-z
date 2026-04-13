@@ -283,72 +283,79 @@ main
         }
 }
 
-/* mobile responsive */
+/* 📱 MOBILE RESPONSIVE (CLEAN + PRECISE) */
+@media (max-width: 768px) {
 
-@media (max-width: 768px)
-{
-        header
-        {
-          padding: 1rem 0.1rem;
-        } 
+    /* HEADER */
+    header {
+        padding: 1rem;
+    }
 
-        nav
-        {
-          display: none;  
-        }
+    header h1 {
+        font-size: 2rem;
+    }
 
-        header h1
-        {
-          font-size: 2rem;  
-        }
+    /* HIDE NAV (keep your design) */
+    nav {
+        display: none;
+    }
 
-        .btn-signing
-        {
-          padding: 0.6rem 1.5rem;  
-        }
+    /* HEADER BUTTONS */
+    .header-buttons {
+        gap: 0.5rem;
+    }
 
-        .content
-        {
-          margin-top: 6rem; /* ✅ reduced from 25rem */
-        }
+    .btn-signing,
+    .btn-back {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
 
-        .robot-3d
-        {
-          scale: 0.5;
-          top: -25%;
-          right: 0;  
-        }
+    /* MAIN CONTENT */
+    .content {
+        max-width: 90%;
+        margin: 3rem auto 0;   /* ✅ centered */
+        text-align: center;    /* ✅ better mobile look */
+    }
 
-        .content
-        {
-          max-width: 30rem;
-          margin-left: 10%;  
-        }
+    /* TAG */
+    .tag-box {
+        width: 10rem;
+        margin: 0 auto;
+    }
 
-        .tag-box
-        {
-          width: 12rem;  
-        }
+    /* HEADING */
+    .content h1 {
+        font-size: 2.3rem;
+        margin: 1.5rem 0;
+    }
 
-        .content h1 /* ✅ fixed typo */
-        {
-          font-size: 2.5rem;  
-        }
+    /* DESCRIPTION */
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
 
-        .description
-        {
-          font-size: 1rem;  
-        }
+    /* BUTTONS */
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
 
-        .btn-documentation
-        {
-          font-size: 0.8rem;
-          padding: 0.8rem 1.2rem;  
-        }
+    .btn-documentation,
+    .btn-get-started {
+        font-size: 0.85rem;
+        padding: 0.7rem 1.2rem;
+        width: fit-content;
+    }
 
-        .btn-get-started
-        {
-          font-size: 0.8rem;
-          padding: 0.8rem 2rem;  
-        }
+    /* ROBOT (FIX OVERFLOW ISSUE) */
+    .robot-3d {
+        position: relative;     /* ✅ prevents cut-off */
+        top: 0;
+        right: 0;
+        scale: 0.5;
+        margin-top: 2rem;
+    }
 }
