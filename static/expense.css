@@ -1,0 +1,122 @@
+/* 🌌 BASE */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.image-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    transform: rotate(-30deg);
+}
+
+/* ✅ HEADER (ADDED) */
+header {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000;
+}
+
+/* ✅ LOGO (SAME STYLE AS OTHER PAGES) */
+.logo {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+    margin-top: 10px;
+    font-size: 3rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* BUTTON WRAPPER */
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+/* ✅ BACK BUTTON */
+.btn-back {
+    text-decoration: none;
+    margin-top: -60px;
+    margin-right: 90px;
+    background-color: #a7a7a7;
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background-color: white;
+}
+
+/* CONTENT */
+.container {
+    margin-top: 100px; /* slight push down for header */
+    position: relative;
+    z-index: 2;
+}
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background: #22c55e;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px;
+    font-size: 18px;
+}
+
+.delete {
+    margin-left: 10px;
+    color: red;
+    text-decoration: none;
+}

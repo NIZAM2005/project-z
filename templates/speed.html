@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Typing Speed Test</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='speed.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<body>
+
+<!-- ✅ HEADER (MATCHES QUIZ EXACTLY) -->
+<header>
+    <h1 class="logo">PROJECT Z</h1>
+
+    <div class="header-buttons">
+        <a href="{{ url_for('home') }}" class="btn-back">BACK</a>
+    </div>
+</header>
+
+<!-- BACKGROUND -->
+<img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}">
+<div class="layer-blur"></div>
+
+<!-- TITLE -->
+<div class="page-title">
+    <h1>🧠 Typing Speed Test</h1>
+</div>
+
+<div class="container">
+
+    <p id="sentence"></p>
+
+    <textarea id="input" placeholder="Start typing..."></textarea>
+
+    <div class="results">
+        <p>⏱ Time: <span id="time">0</span>s</p>
+        <p>⚡ Speed: <span id="speed">0</span> WPM</p>
+        <p>🎯 Accuracy: <span id="accuracy">0</span>%</p>
+    </div>
+
+    <div class="leaderboard">
+        <h2>🏆 Leaderboard</h2>
+        <ul id="leaderboard-list"></ul>
+    </div>
+
+    <button onclick="resetTest()">Restart</button>
+
+</div>
+
+<script src="{{ url_for('static', filename='speed.js') }}"></script>
+
+</body>
+</html>

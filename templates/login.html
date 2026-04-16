@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Project Z</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- ✅ HEADER MOVED HERE -->
+    <header>
+        <a href="{{ url_for('home') }}" class="btn-home">BACK</a>
+    </header>
+
+    <!-- BACKGROUND -->
+    <img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}">
+    <div class="layer-blur"></div>
+
+    <!-- POPUP -->
+    <input type="checkbox" id="popup-toggle">
+
+    <div class="popup">
+        <div class="popup-content">
+            <h2>✅ Logged In!</h2>
+            <p>Welcome back to the website.</p>
+
+            <!-- ✅ FIXED REDIRECT -->
+            <label for="popup-toggle" class="close-btn"
+                   onclick="window.location.href='/'">
+                Close
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- LOGIN -->
+        <div class="form-box login">
+            <form>
+                <h1>LOGIN</h1>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class="bx bx-user"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class="bx bx-lock"></i>
+                </div>
+
+                <div class="forgot-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="form-box register">
+            <form>
+                <h1>REGISTER</h1>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class="bx bx-user"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class="bx bx-envelope"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class="bx bx-lock"></i>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+
+        <!-- TOGGLE -->
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Hello Welcome!</h1>
+                <p>Dont have an account?</p>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+
+</body>
+</html>

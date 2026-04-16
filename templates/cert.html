@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cert.css') }}">
+</head>
+<body>
+
+<img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}">
+<div class="layer-blur"></div>
+
+<header>
+    <h1>📜 My Certificates</h1>
+    <p>Professional Achievements & Learning Journey</p>
+
+    <div class="header-buttons">
+        <a href="/" class="btn-back">BACK</a>
+    </div>
+</header>
+
+<main>
+    <div class="grid">
+
+        <!-- CERT 1 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert1.jpg') }}">
+            <div class="overlay">
+                <h3>Introduction to Artificial Intelligence (AI)</h3>
+                <p>IBM</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert1.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert1.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 2 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert2.jpg') }}">
+            <div class="overlay">
+                <h3>Matrix Algebra for Engineers</h3>
+                <p>Hong Kong University of Science and Technology</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert2.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert2.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 3 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert3.jpg') }}">
+            <div class="overlay">
+                <h3>Introduction to Blockchain</h3>
+                <p>Pohang University of Science and Technology</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert3.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert3.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 4 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert4.jpg') }}">
+            <div class="overlay">
+                <h3>Successful Presentation</h3>
+                <p>University of Colorado Boulder</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert4.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert4.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 5 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert5.jpg') }}">
+            <div class="overlay">
+                <h3>Foundations of Computer Science</h3>
+                <p>LearnQuest</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert5.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert5.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 6 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert6.jpg') }}">
+            <div class="overlay">
+                <h3>Pointers, Arrays, and Recursion</h3>
+                <p>Duke University</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert6.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert6.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 7 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert7.jpg') }}">
+            <div class="overlay">
+                <h3>Sharpened Visions: A Poetry Workshop</h3>
+                <p>CalArts</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert7.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert7.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 8 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert8.jpg') }}">
+            <div class="overlay">
+                <h3>Exploratory vs Confirmatory Data Analysis using Python</h3>
+                <p>Coursera</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert8.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert8.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 9 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert9.jpg') }}">
+            <div class="overlay">
+                <h3>Introduction to Relational Database and SQL</h3>
+                <p>Coursera</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert9.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert9.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 10 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert8.jpg') }}">
+            <div class="overlay">
+                <h3>Advanced SQL Concepts</h3>
+                <p>Coursera</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert10.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert10.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERT 11 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='cert11.jpg') }}">
+            <div class="overlay">
+                <h3>English and Academic Preparation</h3>
+                <p>Rice University</p>
+                <div class="btns">
+                    <a href="{{ url_for('static', filename='cert11.pdf') }}" target="_blank" class="view-btn">View</a>
+                    <a href="{{ url_for('static', filename='cert11.pdf') }}" download class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Z</title>
+
+    <!-- ✅ Correct CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}" alt="gradient">
+    <div class="layer-blur"></div>
+
+    <div class="container">
+     <header>
+        <h1 data-aos="fade-down" data-aos-duration="1000" class="logo">PROJECT Z</h1>
+
+        <nav>
+            <!-- ⚠️ If these are Flask pages, use routes -->
+            <a href="/quiz" data-aos="fade-down" data-aos-duration="1500">QUIZ</a>
+            <a href="/game" data-aos="fade-down" data-aos-duration="2000">TIC TAC TOE</a>
+            <a href="/expense" data-aos="fade-down" data-aos-duration="2500" target="_blank">EXPENSE TRACKER</a>
+            <a href="/speed" data-aos="fade-down" data-aos-duration="3000">TYPING SPEED</a>
+        </nav>
+        
+        <div class="header-buttons">
+            <a href="#" data-aos="fade-down" data-aos-duration="3500" class="btn-signing">LOGGED IN</a>
+            <a href="/front" data-aos="fade-down" data-aos-duration="4000" class="btn-back">LOG-OUT</a>
+        </div>
+
+     </header>
+
+     <main>
+        <div class="content">
+            <div class="tag-box">
+                <div class="tag">WELCOME !</div>
+            </div>
+    
+            <h1>HI<br>HELLO</h1>
+    
+            <p class="description">
+                This project is based on dynamic-responsive and interactive website developed using 
+                HTML, CSS, Python, and Java highlighting both design and functionality.
+            </p>
+    
+            <div class="buttons">
+                <!-- ✅ FIXED LINKS -->
+                <a href="/cert" class="btn-documentation">Achievments &gt;</a>
+                <a href="/contact" target="_blank" class="btn-get-started">Contact &gt;</a>
+            </div>
+         </div>
+    </main>
+
+    <spline-viewer class="robot-3d" url="https://prod.spline.design/CqrTRHgABXJtnA5f/scene.splinecode"></spline-viewer>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
