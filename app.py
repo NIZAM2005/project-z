@@ -17,7 +17,7 @@ FILE_NAME = "expenses.txt"
 # 🏠 HOME PAGE
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("front.html")
 
 @app.route("/quiz")
 def quiz():
@@ -31,9 +31,9 @@ def game():
 def speed():
     return render_template("speed.html")
 
-@app.route("/front")
+@app.route("/index")
 def front():
-    return render_template("front.html")
+    return render_template("index.html")
 
 @app.route("/login")
 def login():
