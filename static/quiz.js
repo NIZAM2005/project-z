@@ -32,6 +32,55 @@ const quizData =
         d: "<picture>",
         correct: "a"
     },
+
+    {
+        question: "What does SQL stand for?",
+        a: "Structured Query Language",
+        b: "Simple Query Language",
+        c: "Sequential Query Language",
+        d: "System Query Logic",
+        correct: "a"
+    },
+    {
+        question: "Which of the following is not an operating system?",
+        a: "Windows",
+        b: "Linux",
+        c: "Oracle",
+        d: "macOS",
+        correct: "c"
+    },
+    {
+        question: "What is the full form of IP in networking?",
+        a: "Internet Process",
+        b: "Internal Protocol",
+        c: "Internet Protocol",
+        d: "Interface Program",
+        correct: "c"
+    },
+    {
+        question: "Which HTML tag is used to create a hyperlink?",
+        a: "<link>",
+        b: "<a>",
+        c: "<href>",
+        d: "<url>",
+        correct: "b"
+    },
+    {
+        question: "Which keyword is used to define a function in Python?",
+        a: "function",
+        b: "define",
+        c: "def",
+        d: "func",
+        correct: "c"
+    },
+    {
+        question: "Which method is the entry point of a Java program?",
+        a: "start()",
+        b: "run()",
+        c: "main()",
+        d: "init()",
+        correct: "c"
+    }
 ];
 
 const quiz = document.getElementById('quiz')
@@ -94,7 +143,6 @@ submitBtn.addEventListener('click', () =>
         {
             loadQuiz()
         }
-
         else
         {
             quiz.innerHTML = `
