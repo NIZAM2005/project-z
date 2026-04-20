@@ -1,11 +1,12 @@
 /* 🌌 BASE */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: black;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #111010, #020617);
     color: white;
     text-align: center;
-    overflow: hidden;
+
+    overflow-x: hidden; /* ✅ FIX: removes right scroll */
 }
 
 /* BACKGROUND */
@@ -13,7 +14,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    opacity: 0.5;
+    opacity: 0.4;
     z-index: -1;
 }
 
@@ -23,11 +24,11 @@ body {
     position: absolute;
     top: 20%;
     right: 0;
-    box-shadow: 0 0 700px 15px white;
+    box-shadow: 0 0 800px 20px #030303;
     transform: rotate(-30deg);
 }
 
-/* ✅ HEADER (ADDED) */
+/* HEADER */
 header {
     position: absolute;
     top: 30px;
@@ -40,14 +41,14 @@ header {
     z-index: 1000;
 }
 
-/* ✅ LOGO (SAME STYLE AS OTHER PAGES) */
+/* LOGO */
 .logo {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
-    margin-top: 10px;
     font-size: 3rem;
     font-weight: 100;
     letter-spacing: 2px;
     color: white;
+    margin-top: 10px;
 }
 
 /* BUTTON WRAPPER */
@@ -56,67 +57,183 @@ header {
     align-items: center;
 }
 
-/* ✅ BACK BUTTON */
+/* BACK BUTTON */
 .btn-back {
     text-decoration: none;
-    margin-top: -60px;
+    margin-top: -20px;
     margin-right: 90px;
     background-color: #a7a7a7;
     color: black;
     padding: 0.8rem 2rem;
     border-radius: 50px;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
+    display: inline-block;
 }
 
-.btn-back:hover {
-    background-color: white;
+/* 🔥 MAIN LAYOUT */
+.main-layout {
+    display: flex;
+    margin-top: 140px;
+    padding: 0 60px;
+    gap: 30px;
 }
 
-/* CONTENT */
-.container {
-    margin-top: 100px; /* slight push down for header */
-    position: relative;
-    z-index: 2;
+/* LEFT PANEL */
+.left-panel {
+    width: 75%;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
 }
 
-form {
-    margin: 20px 0;
+/* ✅ RIGHT WRAPPER (FIXED) */
+.right-wrapper {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-right: 0; /* ❌ removed extra overflow */
 }
 
-input {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 8px;
+/* RIGHT PANEL */
+.right-panel {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+}
+
+/* FORM */
+.form input,
+.form select {
+    width: 90%;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 10px;
     border: none;
-    outline: none;
+    background: rgba(176,181,184,0.2);
+    color: white;
 }
 
-button {
-    padding: 10px 20px;
-    background: #22c55e;
+.form select,
+.form select option {
+    background-color: #2a2a2a;
+}
+
+/* BUTTON */
+.form button {
+    width: 95%;
+    padding: 12px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 10px;
     border: none;
     color: white;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+    padding: 10px;
     border-radius: 6px;
+    border: 1px solid #888;
+    background: transparent;
+    color: white;
     cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
 }
 
-button:hover {
-    background: #16a34a;
+.download-btn:hover {
+    background: rgba(255,255,255,0.1);
 }
 
-ul {
+/* LIST */
+.expense-list {
     list-style: none;
     padding: 0;
 }
 
-li {
-    margin: 10px;
-    font-size: 18px;
+/* ITEM */
+.expense-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.07);
 }
 
+/* LEFT */
+.name {
+    flex: 1;
+    text-align: left;
+}
+
+/* CENTER */
+.category {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* RIGHT */
+.right {
+    flex: 1;
+    text-align: right;
+}
+
+/* DELETE */
 .delete {
     margin-left: 10px;
     color: red;
     text-decoration: none;
+}
+
+/* CHART */
+#expenseChart {
+    max-width: 180px;
+    margin: 15px auto;
+}
+
+/* PERCENT */
+.percent-item {
+    margin: 6px;
+    padding: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+}
+
+/* ✅ CATEGORY + DATE ROW */
+.row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.row select,
+.row input {
+    width: 45%;
+}
+
+/* ✅ DATE COLUMN IN LIST */
+.date {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .left-panel,
+    .right-wrapper {
+        width: 100%;
+    }
 }
