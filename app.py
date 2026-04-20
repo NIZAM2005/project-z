@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -19,25 +19,31 @@ FILE_NAME = "expenses.txt"
 def home():
     return render_template("index.html")
 
+
 @app.route("/quiz")
 def quiz():
     return render_template("quiz.html")
+
 
 @app.route("/game")
 def game():
     return render_template("game.html")
 
+
 @app.route("/speed")
 def speed():
     return render_template("speed.html")
+
 
 @app.route("/front")
 def front():
     return render_template("front.html")
 
+
 @app.route("/login")
 def login():
     return render_template("login.html")
+
 
 # 📜 CERTIFICATE PAGE
 @app.route("/cert")
@@ -57,7 +63,6 @@ def contact():
             user_email = request.form.get('email')
             message = request.form.get('message')
 
-            # 🛑 VALIDATION
             if not name or not user_email or not message:
                 error = "All fields are required!"
                 return render_template('contact.html', success=success, error=error)
@@ -66,7 +71,6 @@ def contact():
                 error = "Email password not set!"
                 return render_template('contact.html', success=success, error=error)
 
-            # 📧 MESSAGE TO YOU
             msg = MIMEMultipart()
             msg['From'] = EMAIL
             msg['To'] = EMAIL
@@ -81,7 +85,6 @@ Message:
 """
             msg.attach(MIMEText(body, 'plain'))
 
-            # 📧 AUTO REPLY
             reply = MIMEMultipart()
             reply['From'] = EMAIL
             reply['To'] = user_email
@@ -90,7 +93,6 @@ Message:
             reply_text = "Thank you for contacting PROJECT Z. We will get back to you soon!"
             reply.attach(MIMEText(reply_text, 'plain'))
 
-            # 🔌 SMTP CONNECTION
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
             server.login(EMAIL, PASSWORD)
@@ -109,31 +111,68 @@ Message:
     return render_template('contact.html', success=success, error=error)
 
 
-# 💰 EXPENSE PAGE
+# 💰 EXPENSE PAGE (UPDATED WITH DATE)
 @app.route("/expense")
 def expense():
     expenses = []
     total = 0
+    category_totals = {}
 
     if os.path.exists(FILE_NAME):
         with open(FILE_NAME, "r") as file:
             for i, line in enumerate(file):
-                name, amount = line.strip().split(",")
-                amount = float(amount)
-                expenses.append((i, name, amount))
+                parts = line.strip().split(",")
+
+                # 🛡 handle old + new data
+                if len(parts) == 2:
+                    name, amount = parts
+                    category = "Other"
+                    date = "N/A"
+
+                elif len(parts) == 3:
+                    name, amount, category = parts
+                    date = "N/A"
+
+                else:
+                    name, amount, category, date = parts
+
+                try:
+                    amount = float(amount)
+                except:
+                    amount = 0
+
+                # ✅ include date
+                expenses.append((i, name, amount, category, date))
+
                 total += amount
 
-    return render_template("expense.html", expenses=expenses, total=total)
+                # 📊 category totals
+                if category in category_totals:
+                    category_totals[category] += amount
+                else:
+                    category_totals[category] = amount
+
+    return render_template(
+        "expense.html",
+        expenses=expenses,
+        total=total,
+        category_data=category_totals
+    )
 
 
-# ➕ ADD EXPENSE
+# ➕ ADD EXPENSE (UPDATED WITH DATE)
 @app.route("/add", methods=["POST"])
 def add():
-    name = request.form["name"]
-    amount = request.form["amount"]
+    name = request.form.get("name")
+    amount = request.form.get("amount")
+    category = request.form.get("category", "Other")
+    date = request.form.get("date")
+
+    if not name or not amount:
+        return redirect("/expense")
 
     with open(FILE_NAME, "a") as file:
-        file.write(f"{name},{amount}\n")
+        file.write(f"{name},{amount},{category},{date}\n")
 
     return redirect("/expense")
 
@@ -156,7 +195,7 @@ def delete(index):
     return redirect("/expense")
 
 
-# 🚀 REQUIRED FOR RENDER
+# 🚀 RUN APP
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)
