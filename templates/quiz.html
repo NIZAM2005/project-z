@@ -6,29 +6,21 @@
     <title>Quiz | Project Z</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
-    
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
 <img class="image-gradient" src="{{ url_for('static', filename='gradient.png') }}" alt="gradient">
 <div class="layer-blur"></div>
 
-<!-- HEADER -->
 <header>
-    <!-- ✅ ADDED LOGO (LEFT SIDE SAME AS INDEX) -->
     <h1 class="logo">PROJECT Z</h1>
-
     <div class="header-buttons">
         <a href="{{ url_for('home') }}" class="btn-back">BACK</a>
     </div>
 </header>
 
-<!-- QUIZ -->
 <div class="quiz-container" id="quiz">
     <div class="quiz-header">
         <h2 id="question">Loading question...</h2>
@@ -59,7 +51,6 @@
     <button id="submit">Submit</button>
 </div>
 
-<!-- ✅ FIXED JS -->
 <script src="{{ url_for('static', filename='quiz.js') }}"></script>
 
 </body>
