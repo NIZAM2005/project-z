@@ -24,7 +24,6 @@ registerForm.addEventListener("submit", function(e) {
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // check if user already exists
     const exists = users.find(user => user.username === username);
 
     if (exists) {
@@ -32,23 +31,22 @@ registerForm.addEventListener("submit", function(e) {
         return;
     }
 
-    // save user
     users.push({ username, email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("✅ Registration successful! Please login.");
 
     registerForm.reset();
-    container.classList.remove('active'); // go to login
+    container.classList.remove('active');
 });
 
 // =======================
-// LOGIN LOGIC
+// LOGIN LOGIC (UPDATED)
 // =======================
 const loginForm = document.getElementById("loginForm");
 const popupToggle = document.getElementById('popup-toggle');
 
-const redirectUrl = "/"; // home page
+const redirectUrl = "/";
 
 loginForm.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -58,7 +56,21 @@ loginForm.addEventListener("submit", function(e) {
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const validUser = users.find(user => 
+    // ✅ DEFAULT ADMIN LOGIN
+    if (username === "admin" && password === "123") {
+        popupToggle.checked = true;
+        loginForm.reset();
+
+        setTimeout(() => {
+            popupToggle.checked = false;
+            window.location.href = redirectUrl;
+        }, 2000);
+
+        return; // stop further checking
+    }
+
+    // ✅ NORMAL USER LOGIN
+    const validUser = users.find(user =>
         user.username === username && user.password === password
     );
 
