@@ -2,45 +2,76 @@ const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
-registerBtn.addEventListener
-('click',() =>
-    {
-      container.classList.add('active');
-    });
+registerBtn.addEventListener('click', () => {
+    container.classList.add('active');
+});
 
-loginBtn.addEventListener
-('click',() =>
-    {
-      container.classList.remove('active');
-    });    
+loginBtn.addEventListener('click', () => {
+    container.classList.remove('active');
+});
 
-// Get references
-const loginForm = document.querySelector('.form-box.login form');
+// =======================
+// REGISTER LOGIC
+// =======================
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("registerUsername").value;
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // check if user already exists
+    const exists = users.find(user => user.username === username);
+
+    if (exists) {
+        alert("⚠ Username already exists!");
+        return;
+    }
+
+    // save user
+    users.push({ username, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("✅ Registration successful! Please login.");
+
+    registerForm.reset();
+    container.classList.remove('active'); // go to login
+});
+
+// =======================
+// LOGIN LOGIC
+// =======================
+const loginForm = document.getElementById("loginForm");
 const popupToggle = document.getElementById('popup-toggle');
 
-// Change this to your desired redirect page
-const redirectUrl = "index.html"; // replace with your page
+const redirectUrl = "/"; // home page
 
-loginForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form from submitting
+loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    const username = loginForm.querySelector('input[type="text"]').value;
-    const password = loginForm.querySelector('input[type="password"]').value;
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
 
-    // Check credentials
-    if (username === "admin" && password === "123") {
-        // Show popup
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const validUser = users.find(user => 
+        user.username === username && user.password === password
+    );
+
+    if (validUser) {
         popupToggle.checked = true;
-
-        // Optionally reset form
         loginForm.reset();
 
-        // Auto-close popup and redirect after 3 seconds
         setTimeout(() => {
-            popupToggle.checked = false;  // hide popup
-            window.location.href = redirectUrl; // redirect to dashboard
-        }, 5000);
+            popupToggle.checked = false;
+            window.location.href = redirectUrl;
+        }, 2000);
+
     } else {
-        alert("❌ Incorrect username or password!");
+        alert("❌ Invalid username or password!");
     }
 });
